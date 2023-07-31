@@ -11,9 +11,9 @@ import java.util.List;
 public class Quiz {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
     @ManyToMany
-    private List<Question> question;
+    private List<Question> questions;
 }
