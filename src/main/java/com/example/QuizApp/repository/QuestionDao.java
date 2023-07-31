@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface QuestionDao extends JpaRepository<Question,Integer> {
@@ -14,4 +15,7 @@ public interface QuestionDao extends JpaRepository<Question,Integer> {
 
     @Query(value = "SELECT * FROM question q WHERE q.category=:category ORDER BY RANDOM() LIMIT :numQ",nativeQuery = true)
     List<Question> findRandomQuestionByCategory(String category, int numQ);
+
+//    @Query(value = "SELECT :answerOption FROM question q WHERE q.id=:rowId ",nativeQuery = true)
+//    String findTheCorrectAnser(Optional<Question> rowId, String answerOption);
 }
